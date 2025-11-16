@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <Nullable>enable</Nullable>
+
+    <!-- Duckov 설치 경로 (Duckov.exe가 있는 폴더) -->
+    <DuckovPath>C:\Program Files (x86)\Steam\steamapps\common\Escape from Duckov</DuckovPath>
+
+    <!-- Managed 폴더 -->
+    <SubPath>\Duckov_Data\Managed\</SubPath>
+
+    <!-- 🔽 여기 중요: DLL 이름 / 네임스페이스 -->
+    <AssemblyName>enemyviewjack</AssemblyName>
+    <RootNamespace>enemyviewjack</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- TeamSoda.* : Duckov.Core / Duckov.Modding / Utilities 등 전부 포함 -->
+    <Reference Include="$(DuckovPath)$(SubPath)TeamSoda.*" />
+    <!-- 아이템 스탯 시스템 -->
+    <Reference Include="$(DuckovPath)$(SubPath)ItemStatsSystem.dll" />
+    <!-- Unity 관련 DLL 전체 (UnityEngine, Physics 등) -->
+    <Reference Include="$(DuckovPath)$(SubPath)Unity*" />
+  </ItemGroup>
+</Project>
